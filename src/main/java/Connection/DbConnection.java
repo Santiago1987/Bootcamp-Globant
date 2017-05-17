@@ -11,33 +11,22 @@ import java.sql.SQLException;
 
 public class DbConnection {
 
-    @Autowired
-    private DataBase dataBase;
     private static Connection cnx = null;
-    protected String driver = "com.mysql.jdbc.Driver";
-    protected String url = "jdbc:mysql://localhost:3306/sys?verifyServerCertificate=false&useSSL=true";
-    protected String pwd = "AbU422696";
-    protected String usr = "root";
+    private static String driver = "com.mysql.jdbc.Driver";
+    private static String url = "jdbc:mysql://localhost:3306/sys?verifyServerCertificate=false&useSSL=true";
+    private static String pwd = "AbU422696";
+    private static String usr = "root";
 
-    protected DbConnection(){
+    private DbConnection(){
         try {
-
             Class.forName(driver);
             cnx = DriverManager.getConnection(url,usr,pwd);
-
-            dataBase.setDataBase();
-
-            url = "jdbc:mysql://localhost:3306/Weather?verifyServerCertificate=false&useSSL=true";
-            cnx = DriverManager.getConnection(url,usr,pwd);
-
-
         }catch (SQLException ex){
             ex.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-
 
     public static Connection getDbConnection(){
         if(cnx == null){
@@ -53,5 +42,19 @@ public class DbConnection {
         }
     }
 
+    public static void setDriver(String driver) {
+        DbConnection.driver = driver;
+    }
 
+    public static void setUrl(String url) {
+        DbConnection.url = url;
+    }
+
+    public static void setPwd(String pwd) {
+        DbConnection.pwd = pwd;
+    }
+
+    public static void setUsr(String usr) {
+        DbConnection.usr = usr;
+    }
 }
