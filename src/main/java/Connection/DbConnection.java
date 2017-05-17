@@ -13,7 +13,7 @@ public class DbConnection {
 
     private static Connection cnx = null;
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/sys?verifyServerCertificate=false&useSSL=true";
+    private static String url = "jdbc:mysql://localhost:3306/Weather?verifyServerCertificate=false&useSSL=true";
     private static String pwd = "AbU422696";
     private static String usr = "root";
 

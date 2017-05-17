@@ -20,7 +20,7 @@ public class Main {
         WeatherDAO f = new Forecast();
         ResultSet resu;
 
-        Location l = locat.city("Cordoba").region("CBA").country("Argentina").atm(atm.humidity(66).pressure(965).visibility(22).build()).astro(astro.sunrise("7:30 am").sunset("6: 30 am").build())
+        Location l = locat.city("Cordoba").region("CBA").country("Argentina").atm(atm.humidity(66).pressure(965).visibility(22).build()).astro(astro.sunrise("7:30 am").sunset("6:30 am").build())
                 .it(it.title("Condition for Cordoba at 05:00 PM ART").text("Cloudy").actualday("Friday").temp(70).build()).build();
 
 

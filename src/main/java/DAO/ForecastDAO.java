@@ -24,7 +24,7 @@ public class ForecastDAO implements WeatherDAO {
         for(Forecast f : fore){
             if(codigo !=0){
                 String sql ="insert into forecast (datef, dayf, state, high, low, cod_locat) "
-                        + "values (?,?,?,?,?,?)";
+                        + "values (?,?,?,?,?,?);";
 
                 PreparedStatement pst = c.prepareStatement(sql);
                 pst.setString(1, fore.get(i).getDate());
@@ -33,7 +33,7 @@ public class ForecastDAO implements WeatherDAO {
                 pst.setFloat(4, fore.get(i).getHigh());
                 pst.setFloat(5, fore.get(i).getLow());
                 pst.setInt(6, codigo);
-                pst.executeUpdate(sql);
+                pst.executeUpdate();
 
                 i++;
             }

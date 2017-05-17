@@ -31,7 +31,7 @@ public class ItemBuilder {
     }
 
     public ItemBuilder temp(int temp){
-        this.text = text;
+        this.temp = temp;
         return this;
     }
 

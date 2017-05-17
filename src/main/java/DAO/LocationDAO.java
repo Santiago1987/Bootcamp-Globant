@@ -16,7 +16,7 @@ public class LocationDAO implements WeatherDAO {
     public void insertSQL(Location locat) throws Exception {
 
         String sql = "insert into location (city, country, region, title, actualday, state, temp, humidity, pressure, visibility, sunrise, sunset) "
-                + "values (?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "values (?,?,?,?,?,?,?,?,?,?,?,?);";
 
         Connection c = DbConnection.getDbConnection();
 
@@ -34,7 +34,7 @@ public class LocationDAO implements WeatherDAO {
         pst.setString(11, locat.getAstro().getSunrise());
         pst.setString(12, locat.getAstro().getSunset());
 
-        pst.executeUpdate(sql);
+        pst.executeUpdate();
     }
 
     public ResultSet selectSQL(String sql) throws Exception {
