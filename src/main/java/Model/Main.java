@@ -12,6 +12,7 @@ import java.sql.SQLException;
 public class Main {
 
     public  static void main(String[] arg){
+
         int i = 0;
         Connection c = DbConnection.getDbConnection();
         DataManipulation dm = new DataManipulation();

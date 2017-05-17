@@ -10,6 +10,7 @@ public class DataManipulation {
 
     private Statement st = null;
     private ResultSet resu;
+
     private Connection c = DbConnection.getDbConnection();
 
     public boolean insertSQL(String sql){

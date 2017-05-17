@@ -1,7 +1,6 @@
 package Conecction;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,56 +14,27 @@ import static org.junit.Assert.*;
 
 public class DbConnectionTest {
 
-    private static Connection cnx = null;
-    private Statement st;
 
-    public DbConnectionTest(){
-
-        try {
-
-            Class.forName("org.h2.Driver");
-            cnx = DriverManager.getConnection("jdbc:h2:~/test", "test", "test");
-
-        }catch (SQLException ex){
-            ex.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
-
+    @Before
+    public void setUp() throws Exception {
+        DbConnection.setDriver("org.h2.Driver");
+        DbConnection.setUsr("test");
+        DbConnection.setPwd("test");
+        DbConnection.setUrl("jdbc:h2:~/test");
     }
-
-    public static Connection getCnx() {
-        return cnx;
-    }
-
-
-    public Connection getDbConnection() throws Exception {
-        if(cnx == null){
-            new DbConnectionTest();
-
-        }
-
-        return cnx;
-
-    }
-
 
     @Test
     public void cnxTest() throws Exception {
 
-        Connection c1 = getDbConnection();
-        Connection c2 = getDbConnection();
+        Connection c1 = DbConnection.getDbConnection();
+        Connection c2 = DbConnection.getDbConnection();
 
         assertSame(c1, c2);
-
-
     }
 
     @After
     public void tearDown() throws Exception {
-        cnx.close();
-
+        DbConnection.getDbConnection().close();
     }
+
 }
