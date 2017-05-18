@@ -5,10 +5,11 @@ import Model.Astronomy;
 
 public class AstronomyBuilder {
 
-    private  String sunrise = "", sunset= "";
+    private  String sunrise, sunset;
 
-    public AstronomyBuilder(){
-
+    public AstronomyBuilder(String sunrise, String sunset) {
+        this.sunrise = sunrise;
+        this.sunset = sunset;
     }
 
     public AstronomyBuilder sunrise(String sunrise){

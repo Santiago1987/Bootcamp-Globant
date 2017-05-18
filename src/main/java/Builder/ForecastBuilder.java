@@ -4,10 +4,15 @@ package Builder;
 import Model.Forecast;
 
 public class ForecastBuilder {
-    private String date = "", day = "", text = "";
-    private float high = 0, low = 0;
+    private String date, day, text;
+    private float high, low;
 
-    public ForecastBuilder() {
+    public ForecastBuilder(String date, String day, String text, float high, float low) {
+        this.date = date;
+        this.day = day;
+        this.text = text;
+        this.high = high;
+        this.low = low;
     }
 
     public ForecastBuilder date(String date){

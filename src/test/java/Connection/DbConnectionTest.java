@@ -3,34 +3,38 @@ package Connection;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.*;
+
 
 import static org.junit.Assert.*;
 
 
 public class DbConnectionTest {
+    DbConnection dbConnection;
+
     @Before
     public void setUp() throws Exception {
-        DbConnection.setDriver("org.h2.Driver");
-        DbConnection.setUsr("test");
-        DbConnection.setPwd("test");
-        DbConnection.setUrl("jdbc:h2:~/test");
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        dbConnection = (DbConnection) context.getBean("connectionH2");
     }
 
 
     @Test
-    public void cnxTest() throws Exception {
+    public void TestsIfTheTwoConnectioAreTheSame() throws Exception {
+        Connection c = null;
 
-        Connection c1 = DbConnection.getDbConnection();
-        Connection c2 = DbConnection.getDbConnection();
+        c = dbConnection.getConnection();
 
-        assertSame(c1, c2);
+
+        assertNotNull(c);
     }
 
     @After
     public void tearDown() throws Exception {
-        DbConnection.getDbConnection().close();
+       dbConnection.disconect();
     }
 
 }

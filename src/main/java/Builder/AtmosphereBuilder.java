@@ -5,11 +5,15 @@ import Model.Atmosphere;
 
 public class AtmosphereBuilder {
 
-    private int humidity = 0;
-    private float pressure = 0;
-    private float visibility = 0;
+    private int humidity;
+    private float pressure;
+    private float visibility;
 
-    public  AtmosphereBuilder(){}
+    public AtmosphereBuilder(int humidity, float pressure, float visibility) {
+        this.humidity = humidity;
+        this.pressure = pressure;
+        this.visibility = visibility;
+    }
 
     public AtmosphereBuilder humidity(int humidity){
         this.humidity = humidity;

@@ -7,12 +7,18 @@ import Model.Item;
 import Model.Location;
 
 public class LocationBuilder {
-    private String city = "", country="", region="";
-    private Atmosphere atm = null;
-    private Astronomy astro=null;
-    private Item it = null;
+    private String city, country, region;
+    private Atmosphere atm;
+    private Astronomy astro;
+    private Item it;
 
-    public LocationBuilder() {
+    public LocationBuilder(String city, String country, String region, Atmosphere atm, Astronomy astro, Item it) {
+        this.city = city;
+        this.country = country;
+        this.region = region;
+        this.atm = atm;
+        this.astro = astro;
+        this.it = it;
     }
 
     public LocationBuilder city(String city){

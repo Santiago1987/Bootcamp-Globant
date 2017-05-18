@@ -1,0 +1,62 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id = "connection" class = "Connection.DbConnection">
+        <property name = "driver" value = "com.mysql.jdbc.Driver"/>
+        <property name= "url" value="jdbc:mysql://localhost:3306/Weather?verifyServerCertificate=false&amp;useSSL=true"/>
+        <property name= "pwd" value="AbU422696" />
+        <property name= "usr" value="root" />
+    </bean>
+
+    <bean id = "connectionH2" class="Connection.DbConnection">
+        <property name = "driver" value = "org.h2.Driver"/>
+        <property name= "url" value="jdbc:h2:~/test"/>
+        <property name="pwd" value="test" />
+        <property name="usr" value="test" />
+    </bean>
+
+    <bean id="astronomyBuilder" class="Builder.AstronomyBuilder">
+        <constructor-arg index="0" value=" "/>
+        <constructor-arg index="1" value=" "/>
+    </bean>
+
+    <bean id="atmosphereBuilder" class="Builder.AtmosphereBuilder">
+        <constructor-arg index="0" value="0"/>
+        <constructor-arg index="1" value="0"/>
+        <constructor-arg index="2" value="0"/>
+    </bean>
+
+    <bean id="forecastBuilder" class="Builder.ForecastBuilder">
+        <constructor-arg index="0" value=" "/>
+        <constructor-arg index="1" value=" "/>
+        <constructor-arg index="2" value=" "/>
+        <constructor-arg index="3" value="0"/>
+        <constructor-arg index="4" value="0"/>
+    </bean>
+
+    <bean id="itemBuilder" class="Builder.ItemBuilder">
+        <constructor-arg index="0" value=" "/>
+        <constructor-arg index="1" value=" "/>
+        <constructor-arg index="2" value=" "/>
+        <constructor-arg index="3" value="0"/>
+    </bean>
+
+    <bean id="locationBuilder" class="Builder.LocationBuilder">
+        <constructor-arg index="0" value=" "/>
+        <constructor-arg index="1" value=" "/>
+        <constructor-arg index="2" value=" "/>
+        <constructor-arg index="3"><null /></constructor-arg>
+        <constructor-arg index="4"><null /></constructor-arg>
+        <constructor-arg index="5"><null /></constructor-arg>
+    </bean>
+
+
+
+
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+
+</beans>
