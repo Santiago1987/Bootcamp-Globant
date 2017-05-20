@@ -15,8 +15,9 @@ import java.util.List;
 public class ForecastDAO implements WeatherDAO {
 
     ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+    int codigo;
     public void insertSQL(List<Forecast> fore) throws Exception {
-        int i = 0, codigo;
+        int i = 0;
         DbConnection dbConnection = (DbConnection) context.getBean("connection");
         Connection connection = dbConnection.getConnection();
         Statement st = connection.createStatement();
@@ -40,6 +41,7 @@ public class ForecastDAO implements WeatherDAO {
                 i++;
             }
         }
+        connection.close();
     }
 
 
@@ -47,11 +49,21 @@ public class ForecastDAO implements WeatherDAO {
 
     }
 
-    public ResultSet selectSQL(String sql) throws Exception {
+    public String selectSQL() throws Exception {
+        String list = "";
         DbConnection dbConnection = (DbConnection) context.getBean("connection");
         Connection connection = dbConnection.getConnection();
         Statement st = connection.createStatement();
-        ResultSet resu = st.executeQuery(sql);
-        return resu;
+        ResultSet resu = st.executeQuery("select datef, dayf, f.state, high, low, f.cod_locat from forecast f join location l on f.cod_locat=l.cod_locat "
+                + "where f.cod_locat="+codigo);
+        while(resu.next()){
+            list += "Date: "+resu.getString(1)+"\n"
+                    +"Day: "+resu.getString(2)+"\n"
+                    +"State: "+resu.getString(3)+"\n"
+                    +"High: "+resu.getFloat(4)+"\n"
+                    +"Low: "+resu.getFloat(5)+"\n"+"\n";
+        }
+        connection.close();
+        return list;
     }
 }

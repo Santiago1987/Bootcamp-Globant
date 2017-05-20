@@ -7,11 +7,7 @@ public class ItemBuilder {
     private String title = "", actualday= "", text= "";
     private int temp = 0;
 
-    public ItemBuilder(String title, String actualday, String text, int temp) {
-        this.title = title;
-        this.actualday = actualday;
-        this.text = text;
-        this.temp = temp;
+    public ItemBuilder() {
     }
 
     public ItemBuilder title(String title){

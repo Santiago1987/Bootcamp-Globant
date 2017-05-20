@@ -10,7 +10,7 @@ public interface WeatherDAO {
 
     public void insertSQL(Location locat) throws Exception ;
 
-    ResultSet selectSQL(String sql) throws Exception;
+    String selectSQL() throws Exception;
 
     public void insertSQL(List<Forecast> fore) throws Exception;
 

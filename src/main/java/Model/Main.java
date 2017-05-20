@@ -14,12 +14,12 @@ public class Main {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
         int codigo = 0;
-        String list ="";
-        AstronomyBuilder astronomyBuilder = (AstronomyBuilder) context.getBean("astronomyBuilder");
-        AtmosphereBuilder atmosphereBuilder = (AtmosphereBuilder) context.getBean("atmosphereBuilder");
-        ForecastBuilder forecastBuilder = (ForecastBuilder) context.getBean("forecastBuilder");
-        ItemBuilder itemBuilder = (ItemBuilder) context.getBean("itemBuilder");
-        LocationBuilder locationBuilder = (LocationBuilder) context.getBean("locationBuilder");
+        String header;
+        AstronomyBuilder astronomyBuilder = new AstronomyBuilder();
+        AtmosphereBuilder atmosphereBuilder = new AtmosphereBuilder();
+        ForecastBuilder forecastBuilder = new ForecastBuilder();
+        ItemBuilder itemBuilder = new ItemBuilder();
+        LocationBuilder locationBuilder = new LocationBuilder();
         WeatherDAO f = new Forecast();
         ResultSet resu;
 
@@ -34,36 +34,11 @@ public class Main {
 
         try {
             l.insertSQL(l);
-            resu = l.selectSQL("select * from location");
-            resu.last();
-            codigo = resu.getInt(1);
-            System.out.println("Climate in the city of: "+resu.getString(2)+"\n"
-                    +"Country: "+resu.getString(3)+"\n"
-                    +"Region: "+resu.getString(4)+"\n"
-                    +resu.getString(5)+"\n"
-                    +"Day: "+resu.getString(6)+"\n"
-                    +"State: "+resu.getString(7)+"\n"
-                    +"Temperature: "+resu.getInt(8)+"\n"
-                    +"Humidity: "+resu.getInt(9)+"\n"
-                    +"Pressure: "+resu.getFloat(10)+"\n"
-                    +"Visibility: "+resu.getFloat(11)+"\n"
-                    +"Sunrise: "+resu.getString(12)+"\n"
-                    +"Sunset: "+resu.getString(13));
-
+            System.out.println(l.selectSQL());
             f.insertSQL(locationBuilder.getIt().getFore());
-            resu = f.selectSQL("select datef, dayf, f.state, high, low, f.cod_locat from forecast f join location l on f.cod_locat=l.cod_locat "
-                    + "where f.cod_locat="+codigo);
 
             System.out.println("Forecast for the next five days: ");
-
-            while(resu.next()){
-                list += "Date: "+resu.getString(1)+"\n"
-                        +"Day: "+resu.getString(2)+"\n"
-                        +"State: "+resu.getString(3)+"\n"
-                        +"High: "+resu.getFloat(4)+"\n"
-                        +"Low: "+resu.getFloat(5)+"\n"+"\n";
-            }
-            System.out.println(list);
+            System.out.println(f.selectSQL());
 
 
         } catch (Exception e) {

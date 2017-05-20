@@ -18,41 +18,6 @@
         <property name="usr" value="test" />
     </bean>
 
-    <bean id="astronomyBuilder" class="Builder.AstronomyBuilder">
-        <constructor-arg index="0" value=" "/>
-        <constructor-arg index="1" value=" "/>
-    </bean>
-
-    <bean id="atmosphereBuilder" class="Builder.AtmosphereBuilder">
-        <constructor-arg index="0" value="0"/>
-        <constructor-arg index="1" value="0"/>
-        <constructor-arg index="2" value="0"/>
-    </bean>
-
-    <bean id="forecastBuilder" class="Builder.ForecastBuilder">
-        <constructor-arg index="0" value=" "/>
-        <constructor-arg index="1" value=" "/>
-        <constructor-arg index="2" value=" "/>
-        <constructor-arg index="3" value="0"/>
-        <constructor-arg index="4" value="0"/>
-    </bean>
-
-    <bean id="itemBuilder" class="Builder.ItemBuilder">
-        <constructor-arg index="0" value=" "/>
-        <constructor-arg index="1" value=" "/>
-        <constructor-arg index="2" value=" "/>
-        <constructor-arg index="3" value="0"/>
-    </bean>
-
-    <bean id="locationBuilder" class="Builder.LocationBuilder">
-        <constructor-arg index="0" value=" "/>
-        <constructor-arg index="1" value=" "/>
-        <constructor-arg index="2" value=" "/>
-        <constructor-arg index="3"><null /></constructor-arg>
-        <constructor-arg index="4"><null /></constructor-arg>
-        <constructor-arg index="5"><null /></constructor-arg>
-    </bean>
-
 
 
 
