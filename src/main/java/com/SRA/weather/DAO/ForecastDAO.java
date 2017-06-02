@@ -96,7 +96,7 @@ public class ForecastDAO implements WeatherDAO {
                 " state=?," +
                 " high=?," +
                 " low=?" +
-                " where cod_locat=?";
+                " where cod_locat=? and cod_fore=?";
         PreparedStatement pst = connection.prepareStatement(sql);
 
         for (Forecast forecast : location.getItem().getForecast()) {
@@ -107,9 +107,11 @@ public class ForecastDAO implements WeatherDAO {
             pst.setFloat(4, location.getItem().getForecast().get(i).getHigh());
             pst.setFloat(5, location.getItem().getForecast().get(i).getLow());
             pst.setInt(6, codigo);
+            pst.setInt(7,cod_fore);
             pst.executeUpdate();
 
             i++;
+            cod_fore++;
         }
         connection.close();
     }

@@ -15,13 +15,13 @@ import org.springframework.stereotype.Component;
 public class YahooStringAdapter implements YahooString{
 
     @Autowired
-    DbManager dbManager;
+    private DbManager dbManager;
 
     @Autowired
-    ClientYahooWeather proxyWeather;
+    private ClientYahooWeather proxyWeather;
 
     @Autowired
-    CelciusIMPL celciusIMPL;
+    private CelciusIMPL celciusIMPL;
 
     @Override
     public Location yahooString(String city, String country) {
@@ -79,10 +79,10 @@ public class YahooStringAdapter implements YahooString{
 
             for(Forecast f : location.getItem().getForecast()){
 
-                tempfore = (int)celciusIMPL.getTemperature(location.getItem().getForecast().get(in).getHigh());
-                location.getItem().getForecast().get(in).setHigh(tempfore);
-                tempfore = (int)celciusIMPL.getTemperature(location.getItem().getForecast().get(in).getLow());
-                location.getItem().getForecast().get(in).setLow(tempfore);
+                tempfore = celciusIMPL.getTemperature(location.getItem().getForecast().get(in).getHigh());
+                location.getItem().getForecast().get(in).setHigh((int)tempfore);
+                tempfore = celciusIMPL.getTemperature(location.getItem().getForecast().get(in).getLow());
+                location.getItem().getForecast().get(in).setLow((int)tempfore);
 
                 in++;
             }

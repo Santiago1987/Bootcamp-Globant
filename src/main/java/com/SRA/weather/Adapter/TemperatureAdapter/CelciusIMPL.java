@@ -14,4 +14,8 @@ public class CelciusIMPL implements Celcius {
 
         return ((farenheiteIMPL.getTemperature(temp)-32)*5/9);
     }
+
+    public CelciusIMPL(FarenheiteIMPL farenheiteIMPL) {
+        this.farenheiteIMPL = farenheiteIMPL;
+    }
 }
