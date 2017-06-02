@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [01/Jun/2017:23:19:07 -0300] "POST /Weather/location/save HTTP/1.1" 400 968 http-bio-8080-exec-2 694
+0:0:0:0:0:0:0:1 - - [01/Jun/2017:23:19:51 -0300] "GET /Weather/location/city/lima/country/peru HTTP/1.1" 200 1189 http-bio-8080-exec-4 3244
+0:0:0:0:0:0:0:1 - - [01/Jun/2017:23:21:08 -0300] "POST /Weather/location/save HTTP/1.1" 400 968 http-bio-8080-exec-7 32
+0:0:0:0:0:0:0:1 - - [01/Jun/2017:23:33:54 -0300] "POST /Weather/location/save HTTP/1.1" 400 968 http-bio-8080-exec-2 480
+0:0:0:0:0:0:0:1 - - [01/Jun/2017:23:37:33 -0300] "POST /Weather/location/save HTTP/1.1" 400 968 http-bio-8080-exec-2 619
+0:0:0:0:0:0:0:1 - - [01/Jun/2017:23:42:32 -0300] "GET /Weather/location/city/Roma/country/Italia HTTP/1.1" 200 1142 http-bio-8080-exec-2 4056
